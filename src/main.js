@@ -1,0 +1,9 @@
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import "./assets/iconfont/iconfont";
+import getVant from "./plugins";
+const app = createApp(App);
+getVant(app);
+app.use(store).use(router).mount("#app");
