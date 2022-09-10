@@ -15,10 +15,12 @@
           <router-link :to="{ path: '/itemMusic', query: { id: item.id } }">
             <img :src="item.picUrl" alt="" />
             <span class="playCount">
-              <iconFont
-                :iconClass="{ width: '.5rem', height: '.5rem' }"
-                :iconHref="'icon-24gl-play'"
-              ></iconFont>
+              <svg
+                :style="{ width: '.4rem', height: '.4rem' }"
+                aria-hidden="true"
+              >
+                <use :xlink:href="'#icon-24gl-play'" />
+              </svg>
               {{ changeCount(item.playCount) }}
             </span>
             <span class="name">{{ item.name }}</span>
@@ -85,10 +87,19 @@ export default {
     height: 4rem;
     .musicSwipe {
       height: 100%;
-    }
-    img {
-      width: 100%;
-      height: 3rem;
+      img {
+        width: 100%;
+        height: 3rem;
+        border-radius: 0.5rem;
+      }
+      .playCount {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0.1rem;
+        top: 0.1rem;
+        color: #fff;
+      }
     }
   }
 }
